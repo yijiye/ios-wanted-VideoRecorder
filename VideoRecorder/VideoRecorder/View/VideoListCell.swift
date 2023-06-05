@@ -7,6 +7,15 @@
 
 import UIKit
 
-final class VideoListCell: UICollectionViewCell {
+final class VideoListCell: UICollectionViewListCell {
+    var video: Video?
     
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        var configuration = VideoContentConfiguration().updated(for: state)
+        configuration.title = video?.title
+        configuration.date = video?.date.description
+        configuration.videoImage = video?.image
+        
+        contentConfiguration = configuration
+    }
 }

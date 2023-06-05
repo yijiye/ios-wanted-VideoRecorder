@@ -31,6 +31,16 @@ final class VideoListViewController: UIViewController {
     private func setUpView() {
         view.backgroundColor = .white
         view.addSubview(videoListCollectionView)
+
+        let safeArea = view.safeAreaLayoutGuide
+        videoListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            videoListCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            videoListCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            videoListCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            videoListCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
+        
     }
     
     private func configureNavigationBar() {
@@ -61,6 +71,8 @@ extension VideoListViewController {
     private func setUpDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<VideoListCell, Video> {
             cell,indexPath,itemIdentifier in
+            cell.video = itemIdentifier
+            cell.accessories = [.disclosureIndicator()]
         }
         
         videoDataSource = DataSource(collectionView: videoListCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

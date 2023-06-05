@@ -16,6 +16,8 @@
 		FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */; };
 		FB2345362A2DA5E100A08E0D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345352A2DA5E100A08E0D /* Video.swift */; };
 		FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345392A2DA83400A08E0D /* VideoListCell.swift */; };
+		FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */; };
+		FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorderTests.swift; sourceTree = "<group>"; };
 		FB2345352A2DA5E100A08E0D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
+		FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentConfiguration.swift; sourceTree = "<group>"; };
+		FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				FB2345392A2DA83400A08E0D /* VideoListCell.swift */,
+				FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */,
+				FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +239,8 @@
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
 				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
 				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
+				FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */,
+				FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -370,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
