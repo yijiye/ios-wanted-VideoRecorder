@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345022A2D9BA600A08E0D /* AppDelegate.swift */; };
 		FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */; };
-		FB2345072A2D9BA600A08E0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345062A2D9BA600A08E0D /* ViewController.swift */; };
+		FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */; };
 		FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */; };
 		FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB23450E2A2D9BA800A08E0D /* Assets.xcassets */; };
 		FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */; };
@@ -30,7 +30,7 @@
 		FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2345022A2D9BA600A08E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB2345062A2D9BA600A08E0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		FB23450C2A2D9BA600A08E0D /* VideoRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoRecorder.xcdatamodel; sourceTree = "<group>"; };
 		FB23450E2A2D9BA800A08E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2345112A2D9BA800A08E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			children = (
 				FB2345022A2D9BA600A08E0D /* AppDelegate.swift */,
 				FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */,
-				FB2345062A2D9BA600A08E0D /* ViewController.swift */,
+				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
 				FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */,
 				FB2345132A2D9BA800A08E0D /* Info.plist */,
@@ -197,7 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB2345072A2D9BA600A08E0D /* ViewController.swift in Sources */,
+				FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */,
 				FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */,
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
