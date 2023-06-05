@@ -59,10 +59,22 @@ final class VideoListViewController: UIViewController {
         let videoButton = UIButton()
         videoButton.tintColor = .purple
         videoButton.setImage(videoImage, for: .normal)
+        videoButton.addTarget(self, action:  #selector(videoButtonTapped), for: .touchUpInside)
         let video = UIBarButtonItem(customView: videoButton)
         
         navigationItem.leftBarButtonItems = [list, title]
         navigationItem.rightBarButtonItem = video
+    }
+    
+    @objc private func videoButtonTapped() {
+        let recordViewController = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            recordViewController.delegate = self
+            recordViewController.sourceType = .camera
+            recordViewController.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera) ?? []
+            
+            self.present(recordViewController, animated: true)
+        }
     }
 }
 
@@ -93,5 +105,12 @@ extension VideoListViewController {
     private func createLayout() -> UICollectionViewLayout {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         return UICollectionViewCompositionalLayout.list(using: configuration)
+    }
+}
+
+// MARK: ImagePickerControllerDelegate
+extension VideoListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 저장하는 코드 구현하기
     }
 }
