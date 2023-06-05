@@ -14,6 +14,8 @@
 		FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB23450E2A2D9BA800A08E0D /* Assets.xcassets */; };
 		FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */; };
 		FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */; };
+		FB2345362A2DA5E100A08E0D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345352A2DA5E100A08E0D /* Video.swift */; };
+		FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345392A2DA83400A08E0D /* VideoListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		FB2345132A2D9BA800A08E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorderTests.swift; sourceTree = "<group>"; };
+		FB2345352A2DA5E100A08E0D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +82,11 @@
 		FB2345012A2D9BA600A08E0D /* VideoRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				FB2345372A2DA5E400A08E0D /* Model */,
+				FB23453B2A2DA83A00A08E0D /* View */,
+				FB2345382A2DA79D00A08E0D /* ViewController */,
 				FB2345022A2D9BA600A08E0D /* AppDelegate.swift */,
 				FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */,
-				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
 				FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */,
 				FB2345132A2D9BA800A08E0D /* Info.plist */,
@@ -95,6 +101,30 @@
 				FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */,
 			);
 			path = VideoRecorderTests;
+			sourceTree = "<group>";
+		};
+		FB2345372A2DA5E400A08E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345352A2DA5E100A08E0D /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB2345382A2DA79D00A08E0D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FB23453B2A2DA83A00A08E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345392A2DA83400A08E0D /* VideoListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +231,8 @@
 				FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */,
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
+				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
+				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
