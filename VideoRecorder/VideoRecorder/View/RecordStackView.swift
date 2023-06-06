@@ -16,26 +16,28 @@ final class RecordStackView: UIStackView {
     private let recordStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .center
         
         return stackView
     }()
     
     private let recordButton: UIButton = {
-        let button = UIButton()
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .light)
-        let image = UIImage(systemName: "record.circle", withConfiguration: imageConfig)
-        button.setImage(image, for: .normal)
-        button.tintColor = .red
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        button.layer.cornerRadius = 50
+        button.layer.borderWidth = 5
+        button.layer.borderColor = UIColor.white.cgColor
         
         return button
     }()
     
     private let recordTimeLabel: UILabel = {
         let label = UILabel()
+        label.text = "00:00:00"
         return label
     }()
     
-    private let changeCameraModeButton: UIButton = {
+    let changeCameraModeButton: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .light)
         let image = UIImage(systemName: "arrow.triangle.2.circlepath.camera", withConfiguration: imageConfig)
@@ -59,6 +61,7 @@ final class RecordStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUpImageView()
         setUpRecordStackView()
         setUpView()
     }
@@ -67,9 +70,22 @@ final class RecordStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setUpImageView() {
+        cameraRollImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cameraRollImageView.widthAnchor.constraint(equalToConstant: 100),
+            cameraRollImageView.heightAnchor.constraint(equalTo: cameraRollImageView.widthAnchor)
+        ])
+    }
+    
     private func setUpRecordStackView() {
         recordStackView.addArrangedSubview(recordButton)
         recordStackView.addArrangedSubview(recordTimeLabel)
+        
+        recordButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            recordButton.heightAnchor.constraint(equalTo: recordButton.widthAnchor)
+        ])
     }
     
     private func setUpView() {
