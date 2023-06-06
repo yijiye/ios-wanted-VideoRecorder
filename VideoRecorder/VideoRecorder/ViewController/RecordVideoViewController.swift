@@ -13,7 +13,6 @@ final class RecordVideoViewController: UIViewController {
     
     private let captureSession = AVCaptureSession()
     private let videoOutput = AVCaptureMovieFileOutput()
-    
     private lazy var videoPreViewLayer: AVCaptureVideoPreviewLayer = {
         let previewLayer = AVCaptureVideoPreviewLayer()
         previewLayer.frame = self.view.frame
@@ -21,9 +20,14 @@ final class RecordVideoViewController: UIViewController {
         return previewLayer
     }()
     
+    private let closeButton = CloseButtonStackView()
+    private let recordStackView = RecordStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
+        setUpCloseButton()
+        setUpRecordStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +40,26 @@ final class RecordVideoViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         captureSession.stopRunning()
+    }
+    
+    private func setUpCloseButton() {
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            closeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            closeButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)
+        ])
+    }
+    
+    private func setUpRecordStackView() {
+        recordStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            recordStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            recordStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25),
+            recordStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25),
+            recordStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2)
+        ])
     }
     
     private func setUpSession() {
@@ -65,6 +89,9 @@ final class RecordVideoViewController: UIViewController {
             
             captureSession.commitConfiguration()
             self.view.layer.addSublayer(videoPreViewLayer)
+            self.view.addSubview(closeButton)
+            self.view.addSubview(recordStackView)
+            
             videoPreViewLayer.session = captureSession
             
         } catch let error as NSError {
