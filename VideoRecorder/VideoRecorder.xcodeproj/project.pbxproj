@@ -18,6 +18,9 @@
 		FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345392A2DA83400A08E0D /* VideoListCell.swift */; };
 		FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */; };
 		FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */; };
+		FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345512A2E159B00A08E0D /* CoreDataManager.swift */; };
+		FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */; };
+		FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentConfiguration.swift; sourceTree = "<group>"; };
 		FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentView.swift; sourceTree = "<group>"; };
+		FB2345512A2E159B00A08E0D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataClass.swift"; path = "CoreData/VideoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataProperties.swift"; path = "CoreData/VideoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 		FB2344F62A2D9BA600A08E0D = {
 			isa = PBXGroup;
 			children = (
+				FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */,
+				FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */,
+				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
 				FB2345012A2D9BA600A08E0D /* VideoRecorder */,
 				FB23451B2A2D9BA800A08E0D /* VideoRecorderTests */,
 				FB2345002A2D9BA600A08E0D /* Products */,
@@ -94,7 +103,6 @@
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
 				FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */,
 				FB2345132A2D9BA800A08E0D /* Info.plist */,
-				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
 			);
 			path = VideoRecorder;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				FB2345352A2DA5E100A08E0D /* Video.swift */,
+				FB2345512A2E159B00A08E0D /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */,
 				FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */,
 				FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */,
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
@@ -240,7 +250,9 @@
 				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
 				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
 				FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */,
+				FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */,
 				FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */,
+				FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
