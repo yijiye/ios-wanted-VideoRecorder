@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0EAD462A3043F8004C4B7D /* VideoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */; };
 		FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345022A2D9BA600A08E0D /* AppDelegate.swift */; };
 		FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */; };
 		FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */; };
@@ -21,6 +22,15 @@
 		FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345512A2E159B00A08E0D /* CoreDataManager.swift */; };
 		FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */; };
 		FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */; };
+		FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */; };
+		FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */; };
+		FB2345672A2F0C2500A08E0D /* ThumbnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345662A2F0C2500A08E0D /* ThumbnailGenerator.swift */; };
+		FB23456A2A2F0C8400A08E0D /* ThumbnailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345692A2F0C8400A08E0D /* ThumbnailProtocol.swift */; };
+		FB23456C2A2F12A000A08E0D /* VideoContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456B2A2F12A000A08E0D /* VideoContentViewModel.swift */; };
+		FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */; };
+		FB2345702A2F465300A08E0D /* RecordComponentsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */; };
+		FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */; };
+		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewModel.swift; sourceTree = "<group>"; };
 		FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2345022A2D9BA600A08E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +62,15 @@
 		FB2345512A2E159B00A08E0D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataClass.swift"; path = "CoreData/VideoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataProperties.swift"; path = "CoreData/VideoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewModel.swift; sourceTree = "<group>"; };
+		FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
+		FB2345662A2F0C2500A08E0D /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
+		FB2345692A2F0C8400A08E0D /* ThumbnailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailProtocol.swift; sourceTree = "<group>"; };
+		FB23456B2A2F12A000A08E0D /* VideoContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentViewModel.swift; sourceTree = "<group>"; };
+		FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsStackView.swift; sourceTree = "<group>"; };
+		FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonStackView.swift; sourceTree = "<group>"; };
+		FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +118,7 @@
 				FB2345372A2DA5E400A08E0D /* Model */,
 				FB23453B2A2DA83A00A08E0D /* View */,
 				FB2345382A2DA79D00A08E0D /* ViewController */,
+				FB23455F2A2EDBFA00A08E0D /* ViewModel */,
 				FB2345022A2D9BA600A08E0D /* AppDelegate.swift */,
 				FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */,
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
@@ -128,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
+				FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */,
+				FB2345682A2F0C2900A08E0D /* Helper */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -135,11 +158,42 @@
 		FB23453B2A2DA83A00A08E0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB2345732A30004100A08E0D /* CollectionListCell */,
+				FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */,
+				FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */,
+				FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB23455F2A2EDBFA00A08E0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */,
+				FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */,
+				FB23456B2A2F12A000A08E0D /* VideoContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FB2345682A2F0C2900A08E0D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345662A2F0C2500A08E0D /* ThumbnailGenerator.swift */,
+				FB2345692A2F0C8400A08E0D /* ThumbnailProtocol.swift */,
+				FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FB2345732A30004100A08E0D /* CollectionListCell */ = {
+			isa = PBXGroup;
+			children = (
 				FB2345392A2DA83400A08E0D /* VideoListCell.swift */,
 				FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */,
 				FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */,
 			);
-			path = View;
+			path = CollectionListCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,13 +297,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */,
+				FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */,
+				FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */,
+				FB23456A2A2F0C8400A08E0D /* ThumbnailProtocol.swift in Sources */,
+				FB2345702A2F465300A08E0D /* RecordComponentsStackView.swift in Sources */,
+				FB2345672A2F0C2500A08E0D /* ThumbnailGenerator.swift in Sources */,
+				FB23456C2A2F12A000A08E0D /* VideoContentViewModel.swift in Sources */,
+				FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */,
 				FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */,
+				FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */,
+				FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */,
 				FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */,
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
 				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
 				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
 				FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */,
+				FB0EAD462A3043F8004C4B7D /* VideoListViewModel.swift in Sources */,
 				FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */,
 				FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */,
 				FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */,

@@ -6,26 +6,45 @@
 //
 
 import UIKit
+import Combine
 
 final class VideoListViewController: UIViewController {
     enum Section {
         case main
     }
     
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Video>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, VideoEntity>
+    private var cancellables = Set<AnyCancellable>()
     private var videoDataSource: DataSource?
+    private let viewModel = VideoListViewModel()
     
     private lazy var videoListCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .white
         
         return collectionView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpDataSource()
+        bind()
         setUpView()
         configureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.readAll()
+    }
+    
+    private func bind() {
+        viewModel.$videoList
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { output in
+                self.setUpSnapshot(output)
+            })
+            .store(in: &cancellables)
     }
     
     private func setUpView() {
@@ -52,6 +71,7 @@ final class VideoListViewController: UIViewController {
         
         let titleLabel = UILabel()
         titleLabel.text = "Video List"
+        titleLabel.textColor = .black
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         let title = UIBarButtonItem(customView: titleLabel)
         
@@ -76,7 +96,7 @@ final class VideoListViewController: UIViewController {
 // MARK: DataSource
 extension VideoListViewController {
     private func setUpDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<VideoListCell, Video> {
+        let cellRegistration = UICollectionView.CellRegistration<VideoListCell, VideoEntity> {
             cell,indexPath,itemIdentifier in
             cell.video = itemIdentifier
             cell.accessories = [.disclosureIndicator()]
@@ -87,8 +107,8 @@ extension VideoListViewController {
         })
     }
     
-    private func setUpSnapshot(_ videos: [Video]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Video>()
+    private func setUpSnapshot(_ videos: [VideoEntity]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, VideoEntity>()
         snapshot.appendSections([.main])
         snapshot.appendItems(videos, toSection: .main)
         videoDataSource?.apply(snapshot, animatingDifferences: true)

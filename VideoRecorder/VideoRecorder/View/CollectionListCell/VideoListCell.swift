@@ -8,7 +8,7 @@
 import UIKit
 
 final class VideoListCell: UICollectionViewListCell {
-    var video: Video?
+    var video: VideoEntity?
     
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -23,7 +23,7 @@ final class VideoListCell: UICollectionViewListCell {
         let convertedDate = dateFormatter.string(from: date)
         configuration.title = video?.title
         configuration.date = convertedDate
-        configuration.videoImage = video?.image
+        configuration.savedVideo = video?.savedVideo
         
         contentConfiguration = configuration
     }

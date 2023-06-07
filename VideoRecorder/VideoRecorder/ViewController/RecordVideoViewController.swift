@@ -179,10 +179,8 @@ extension RecordVideoViewController {
     
     func tapButton(isRecording: Bool) {
         if isRecording == true {
-            print("레코딩")
             startRecording()
         } else {
-            print("레코딩종료")
             stopRecording()
         }
     }
@@ -213,8 +211,9 @@ extension RecordVideoViewController {
     }
     
     private func stopTimer() {
+        let reset = "00:00:00"
         timer?.invalidate()
-        self.recordStackView.setUpRecordTimerTitle("00:00:00")
+        self.recordStackView.setUpRecordTimerTitle(reset)
     }
 }
 
@@ -224,8 +223,12 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
         if (error != nil) {
             print(error?.localizedDescription as Any)
         } else {
-            guard let videoRecordedURL = outputURL else { return }
+            guard let videoRecordedURL = outputURL,
+                  let videoData = try? Data(contentsOf: videoRecordedURL) else { return }
+            let video = Video(title: "test", date: Date(), savedVideo: videoData)
+            
             UISaveVideoAtPathToSavedPhotosAlbum(videoRecordedURL.path, nil, nil, nil)
+            viewModel.create(video)
         }
     }
 }

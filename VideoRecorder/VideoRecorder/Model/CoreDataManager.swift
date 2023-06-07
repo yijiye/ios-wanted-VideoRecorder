@@ -36,6 +36,17 @@ final class CoreDataManager {
         }
     }
     
+    func readAll() -> [VideoEntity]? {
+        guard let context else { return nil }
+        
+        do {
+            let data = try context.fetch(VideoEntity.fetchRequest())
+            return data
+        } catch {
+            return nil
+        }
+    }
+    
     func update(from id: UUID, to video: Video) {
         guard let currentVideo = read(by: id) else { return }
         
@@ -60,7 +71,7 @@ final class CoreDataManager {
         target.setValue(data.id, forKey: "id")
         target.setValue(data.title, forKey: "title")
         target.setValue(data.date, forKey: "date")
-        target.setValue(data.image, forKey: "video")
+        target.setValue(data.savedVideo, forKey: "savedVideo")
     }
     
     private func save() {

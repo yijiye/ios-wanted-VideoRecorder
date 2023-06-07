@@ -10,7 +10,7 @@ import UIKit
 struct VideoContentConfiguration: UIContentConfiguration {
     var title: String?
     var date: String?
-    var videoImage: UIImage?
+    var savedVideo: Data?
     
     func makeContentView() -> UIView & UIContentView {
         return VideoContentView(configuration: self)
