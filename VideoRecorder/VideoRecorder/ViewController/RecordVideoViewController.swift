@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-final class RecordVideoViewController: UIViewController {
+final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     enum CameraMode {
         case front
         case back
@@ -28,14 +28,12 @@ final class RecordVideoViewController: UIViewController {
         return previewLayer
     }()
     
-    private let closeButton = CloseButton()
-    private let recordStackView = RecordStackView()
+    private let closeButtonView = CloseButton()
+    private let recordStackView = RecordComponentsStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
-        setUpCloseButton()
-        setUpRecordStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,9 +75,9 @@ final class RecordVideoViewController: UIViewController {
             
             captureSession.commitConfiguration()
             self.view.layer.addSublayer(videoPreViewLayer)
-            self.view.addSubview(closeButton)
-            self.view.addSubview(recordStackView)
-            
+            setUpCloseButton()
+            setUpRecordStackView()
+        
             videoPreViewLayer.session = captureSession
             
         } catch let error as NSError {
@@ -103,11 +101,6 @@ final class RecordVideoViewController: UIViewController {
         return device
     }
     
-    private func startRecording() {
-        let tempURL = createVidoURL()
-        videoOutput.startRecording(to: tempURL, recordingDelegate: self)
-    }
-    
     private func createVidoURL() -> URL {
         let tempDirectory = NSTemporaryDirectory()
         let videoName = "TestVideo"
@@ -121,17 +114,21 @@ final class RecordVideoViewController: UIViewController {
     }
     
     private func setUpCloseButton() {
-        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(closeButtonView)
+        closeButtonView.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        
+        closeButtonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            closeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            closeButton.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)
+            closeButtonView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            closeButtonView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            closeButtonView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1)
         ])
     }
     
     private func setUpRecordStackView() {
         recordStackView.changeCameraModeButton.addTarget(self, action: #selector(changeModeButtonTapped), for: .touchUpInside)
+        self.view.addSubview(recordStackView)
+        
         recordStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             recordStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
@@ -143,7 +140,7 @@ final class RecordVideoViewController: UIViewController {
 }
 // MARK: UIButton Action
 extension RecordVideoViewController {
-    @objc private func closeButtonTapped() {
+    @objc func closeButtonTapped() {
         self.dismiss(animated: true)
     }
     
@@ -174,6 +171,16 @@ extension RecordVideoViewController {
         captureSession.removeInput(input)
         guard let videoInput else { return }
         captureSession.addInput(videoInput)
+    }
+    
+    @objc func tapButton(isRecording: Bool) {
+        if isRecording {
+            print("레코딩")
+            let tempURL = createVidoURL()
+            videoOutput.startRecording(to: tempURL, recordingDelegate: self)
+        } else {
+            print("레코딩종료")
+        }
     }
 }
 
