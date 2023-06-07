@@ -20,6 +20,10 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     private let videoOutput = AVCaptureMovieFileOutput()
     private var videoDevice: AVCaptureDevice?
     private var videoInput: AVCaptureInput?
+    
+    private var outputURL: URL?
+    private var timer: Timer?
+    private var secondsOfTimer = 0
    
     private lazy var videoPreViewLayer: AVCaptureVideoPreviewLayer = {
         let previewLayer = AVCaptureVideoPreviewLayer()
@@ -34,6 +38,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
+        recordStackView.recordButton.delegate = self 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,16 +106,15 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         return device
     }
     
-    private func createVidoURL() -> URL {
-        let tempDirectory = NSTemporaryDirectory()
-        let videoName = "TestVideo"
-        return URL(fileURLWithPath: tempDirectory).appendingPathComponent(videoName)
-    }
-    
-    private func stopRecording() {
-        if videoOutput.isRecording == true {
-            videoOutput.stopRecording()
+    private func createVidoURL() -> URL? {
+        let directory = NSTemporaryDirectory() as NSString
+        
+        if directory != "" {
+            let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
+            return URL(fileURLWithPath: path)
         }
+        
+        return nil
     }
     
     private func setUpCloseButton() {
@@ -173,21 +177,55 @@ extension RecordVideoViewController {
         captureSession.addInput(videoInput)
     }
     
-    @objc func tapButton(isRecording: Bool) {
-        if isRecording {
+    func tapButton(isRecording: Bool) {
+        if isRecording == true {
             print("레코딩")
-            let tempURL = createVidoURL()
-            videoOutput.startRecording(to: tempURL, recordingDelegate: self)
+            startRecording()
         } else {
             print("레코딩종료")
+            stopRecording()
         }
+    }
+    
+    private func startRecording() {
+        startTimer()
+        outputURL = createVidoURL()
+        guard let outputURL else { return }
+        videoOutput.startRecording(to: outputURL, recordingDelegate: self)
+    }
+    
+    private func stopRecording() {
+        if videoOutput.isRecording == true {
+            stopTimer()
+            videoOutput.stopRecording()
+        }
+    }
+}
+
+// MARK: Timer
+extension RecordVideoViewController {
+    private func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.secondsOfTimer += 1
+            guard let title = Double(self.secondsOfTimer).format(units: [.hour, .minute, .second]) else { return }
+            self.recordStackView.setUpRecordTimerTitle(title)
+        }
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        self.recordStackView.setUpRecordTimerTitle("00:00:00")
     }
 }
 
 
 extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
-        let video = Video(title: "test", date: Date(), videoURL: outputFileURL)
-        viewModel.create(video)
+        if (error != nil) {
+            print(error?.localizedDescription as Any)
+        } else {
+            guard let videoRecordedURL = outputURL else { return }
+            UISaveVideoAtPathToSavedPhotosAlbum(videoRecordedURL.path, nil, nil, nil)
+        }
     }
 }

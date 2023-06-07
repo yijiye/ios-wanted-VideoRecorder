@@ -21,7 +21,7 @@ final class RecordComponentsStackView: UIStackView {
         return stackView
     }()
     
-    private let recordButton: RecordButtonStackView = {
+    let recordButton: RecordButtonStackView = {
         let buttonStackView = RecordButtonStackView()
         
         return buttonStackView
@@ -101,3 +101,8 @@ final class RecordComponentsStackView: UIStackView {
     }
 }
 
+extension RecordComponentsStackView {
+    func setUpRecordTimerTitle(_ title: String) {
+        recordTimeLabel.text = title
+    }
+}
