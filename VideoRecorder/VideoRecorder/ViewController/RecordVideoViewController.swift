@@ -14,7 +14,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         case back
     }
 
-    private let viewModel = RecordVideoViewModel()
+    private let viewModel: RecordVideoViewModel
     
     private let captureSession = AVCaptureSession()
     private let videoOutput = AVCaptureMovieFileOutput()
@@ -34,6 +34,15 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     
     private let closeButtonView = CloseButton()
     private let recordStackView = RecordComponentsStackView()
+    
+    init(viewModel: RecordVideoViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,6 +221,7 @@ extension RecordVideoViewController {
     
     private func stopTimer() {
         let reset = "00:00:00"
+        self.secondsOfTimer = 0
         timer?.invalidate()
         self.recordStackView.setUpRecordTimerTitle(reset)
     }

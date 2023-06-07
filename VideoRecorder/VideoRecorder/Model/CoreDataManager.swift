@@ -67,6 +67,19 @@ final class CoreDataManager {
         }
     }
     
+    func deleteAll() {
+        guard let context = self.context else { return }
+        
+        let request: NSFetchRequest<NSFetchRequestResult> = VideoEntity.fetchRequest()
+        let delete = NSBatchDeleteRequest(fetchRequest: request)
+        
+        do {
+            try context.execute(delete)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     private func setValue(at target: VideoEntity, data: Video) {
         target.setValue(data.id, forKey: "id")
         target.setValue(data.title, forKey: "title")

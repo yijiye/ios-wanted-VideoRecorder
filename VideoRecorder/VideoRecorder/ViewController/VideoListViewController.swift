@@ -16,7 +16,18 @@ final class VideoListViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, VideoEntity>
     private var cancellables = Set<AnyCancellable>()
     private var videoDataSource: DataSource?
-    private let viewModel = VideoListViewModel()
+    private let viewModel: VideoListViewModel
+    private let recordVideoViewModel: RecordVideoViewModel
+    
+    init(viewModel: VideoListViewModel, recordVideoViewModel: RecordVideoViewModel) {
+        self.viewModel = viewModel
+        self.recordVideoViewModel = recordVideoViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var videoListCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
@@ -28,14 +39,15 @@ final class VideoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        viewModel.readAll()
+        viewModel.deleteAll()
         setUpDataSource()
-        bind()
         setUpView()
         configureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.readAll()
+        bind()
     }
     
     private func bind() {
@@ -87,7 +99,7 @@ final class VideoListViewController: UIViewController {
     }
     
     @objc private func videoButtonTapped() {
-        let recordViewController = RecordVideoViewController()
+        let recordViewController = RecordVideoViewController(viewModel: recordVideoViewModel)
         recordViewController.modalPresentationStyle = .fullScreen
         self.present(recordViewController, animated: true, completion: nil)
     }
