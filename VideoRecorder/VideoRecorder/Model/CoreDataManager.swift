@@ -85,6 +85,7 @@ final class CoreDataManager {
         target.setValue(data.title, forKey: "title")
         target.setValue(data.date, forKey: "date")
         target.setValue(data.savedVideo, forKey: "savedVideo")
+        target.setValue(data.thumbnailImage, forKey: "thumbnailImage")
     }
     
     private func save() {

@@ -39,8 +39,8 @@ final class VideoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        viewModel.readAll()
-        viewModel.deleteAll()
+        viewModel.readAll()
+//        viewModel.deleteAll()
         setUpDataSource()
         setUpView()
         configureNavigationBar()
@@ -58,7 +58,7 @@ final class VideoListViewController: UIViewController {
             })
             .store(in: &cancellables)
     }
-    
+
     private func setUpView() {
         view.backgroundColor = .white
         view.addSubview(videoListCollectionView)
@@ -115,6 +115,7 @@ extension VideoListViewController {
         }
         
         videoDataSource = DataSource(collectionView: videoListCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
     }
@@ -130,7 +131,9 @@ extension VideoListViewController {
 // MARK: Layout
 extension VideoListViewController {
     private func createLayout() -> UICollectionViewLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        configuration.backgroundColor = .white
+        
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 }

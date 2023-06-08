@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol RecordButtonDelegate: AnyObject {
-    func tapButton(isRecording: Bool)
-}
-
 final class RecordButtonStackView: UIStackView {
     private var isRecording = false
     private var roundView: UIView?

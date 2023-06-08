@@ -11,6 +11,7 @@ struct VideoContentConfiguration: UIContentConfiguration {
     var title: String?
     var date: String?
     var savedVideo: Data?
+    var thumbnailImage: UIImage?
     
     func makeContentView() -> UIView & UIContentView {
         return VideoContentView(configuration: self)

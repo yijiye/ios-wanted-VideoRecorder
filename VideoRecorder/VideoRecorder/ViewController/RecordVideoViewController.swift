@@ -5,6 +5,7 @@
 //  Created by 리지 on 2023/06/06.
 //
 
+import Combine
 import AVFoundation
 import UIKit
 
@@ -15,7 +16,8 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     }
 
     private let viewModel: RecordVideoViewModel
-    
+    private var cancellables = Set<AnyCancellable>()
+
     private let captureSession = AVCaptureSession()
     private let videoOutput = AVCaptureMovieFileOutput()
     private var videoDevice: AVCaptureDevice?
@@ -29,12 +31,22 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         let previewLayer = AVCaptureVideoPreviewLayer()
         previewLayer.frame = self.view.frame
         previewLayer.videoGravity = .resizeAspectFill
+        
         return previewLayer
     }()
     
-    private let closeButtonView = CloseButton()
-    private let recordStackView = RecordComponentsStackView()
+    private let closeButtonView: CloseButton = {
+        let buttonView = CloseButton()
+        
+        return buttonView
+    }()
     
+    private let recordStackView: RecordComponentsStackView = {
+        let stackView = RecordComponentsStackView()
+        
+        return stackView
+    }()
+  
     init(viewModel: RecordVideoViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -47,7 +59,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
-        recordStackView.recordButton.delegate = self 
+        recordStackView.recordButton.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +71,11 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        captureSession.stopRunning()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.captureSession.stopRunning()
+        }
     }
-    
+
     private func setUpSession() {
         guard let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio) else { return }
 
@@ -109,23 +123,12 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         )
         
         let devices = discoverySession.devices
-        guard !devices.isEmpty else { fatalError("Missing capture devices.")}
-        guard let device = devices.first(where: { device in device.position == position }) else { return nil }
+        guard !devices.isEmpty,
+              let device = devices.first(where: { device in device.position == position }) else { return nil }
         
         return device
     }
-    
-    private func createVidoURL() -> URL? {
-        let directory = NSTemporaryDirectory() as NSString
-        
-        if directory != "" {
-            let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
-            return URL(fileURLWithPath: path)
-        }
-        
-        return nil
-    }
-    
+
     private func setUpCloseButton() {
         self.view.addSubview(closeButtonView)
         closeButtonView.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -151,6 +154,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         ])
     }
 }
+
 // MARK: UIButton Action
 extension RecordVideoViewController {
     @objc func closeButtonTapped() {
@@ -196,7 +200,7 @@ extension RecordVideoViewController {
     
     private func startRecording() {
         startTimer()
-        outputURL = createVidoURL()
+        outputURL = viewModel.createVideoURL()
         guard let outputURL else { return }
         videoOutput.startRecording(to: outputURL, recordingDelegate: self)
     }
@@ -227,7 +231,7 @@ extension RecordVideoViewController {
     }
 }
 
-
+// MARK: AVCaptureFileOutputRecordingDelegate
 extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         if (error != nil) {
@@ -235,10 +239,34 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
         } else {
             guard let videoRecordedURL = outputURL,
                   let videoData = try? Data(contentsOf: videoRecordedURL) else { return }
-            let video = Video(title: "test", date: Date(), savedVideo: videoData)
             
-            UISaveVideoAtPathToSavedPhotosAlbum(videoRecordedURL.path, nil, nil, nil)
-            viewModel.create(video)
+            fetchThumbnail(from: videoRecordedURL, videoData: videoData)
         }
+    }
+    
+    private func fetchThumbnail(from videoRecordedURL: URL, videoData: Data) {
+        viewModel.generateThumbnail(from: videoRecordedURL)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            } receiveValue: { [weak self] image in
+                if let image {
+                    guard let imageData = image.pngData() else { return }
+
+                    let video = Video(title: "test", date: Date(), savedVideo: videoData, thumbnailImage: imageData)
+                    self?.saveVideo(video, url: videoRecordedURL)
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func saveVideo(_ video: Video, url: URL) {
+        UISaveVideoAtPathToSavedPhotosAlbum(url.path, nil, nil, nil)
+        viewModel.create(video)
     }
 }
