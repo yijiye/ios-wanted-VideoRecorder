@@ -240,11 +240,21 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
             guard let videoRecordedURL = outputURL,
                   let videoData = try? Data(contentsOf: videoRecordedURL) else { return }
             
-            fetchThumbnail(from: videoRecordedURL, videoData: videoData)
+            let title = "영상의 제목을 입력해주세요."
+            let save = "저장"
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+            let saveAction = UIAlertAction(title: save, style: .default) { [weak self] _ in
+                guard let videoTitle = alert.textFields?[0].text else { return }
+                self?.fetchThumbnail(from: videoRecordedURL, videoData: videoData, title: videoTitle)
+            }
+            
+            alert.addTextField()
+            alert.addAction(saveAction)
+            self.present(alert, animated: true)
         }
     }
     
-    private func fetchThumbnail(from videoRecordedURL: URL, videoData: Data) {
+    private func fetchThumbnail(from videoRecordedURL: URL, videoData: Data, title: String) {
         viewModel.generateThumbnail(from: videoRecordedURL)
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -258,7 +268,7 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
                 if let image {
                     guard let imageData = image.pngData() else { return }
 
-                    let video = Video(title: "test", date: Date(), savedVideo: videoData, thumbnailImage: imageData)
+                    let video = Video(title: "\(title).mp4", date: Date(), savedVideo: videoData, thumbnailImage: imageData)
                     self?.saveVideo(video, url: videoRecordedURL)
                 }
             }
@@ -270,3 +280,7 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
         viewModel.create(video)
     }
 }
+
+
+
+
