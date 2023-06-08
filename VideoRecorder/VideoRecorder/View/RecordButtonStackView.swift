@@ -13,7 +13,7 @@ final class RecordButtonStackView: UIStackView {
     private var squareSide: CGFloat?
     
     private let externalCircleFactor: CGFloat = 0.1
-    private let roundViewSideFactor: CGFloat = 1
+    private let roundViewSideFactor: CGFloat = 1.3
 
     weak var delegate: RecordButtonDelegate?
     
@@ -37,7 +37,7 @@ final class RecordButtonStackView: UIStackView {
         drawRoundedButton()
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedView(_:))))
     }
-
+    
     private func drawExternalCircle() {
         let layer = CALayer()
         let radius = min(self.bounds.width, self.bounds.height)/2
@@ -57,22 +57,22 @@ final class RecordButtonStackView: UIStackView {
     }
     
     private func drawRoundedButton() {
-        let externalCircleRadius = min(self.bounds.width, self.bounds.height) / 2
+        let externalCircleRadius = min(self.bounds.width, self.bounds.height)/2
         let lineWidth = externalCircleFactor * externalCircleRadius
         let roundedButtonRadius = externalCircleRadius - lineWidth
-        
-        let centerX = self.bounds.width / 2
-        let centerY = self.bounds.height / 2
-        
+
+        let centerX = self.bounds.width/2
+        let centerY = self.bounds.height/2
+
         roundView = UIView(frame:
-                            CGRect(x: centerX / 2 - roundedButtonRadius,
-                                   y: centerY / 2 - roundedButtonRadius,
-                                   width: roundedButtonRadius * 2,
-                                   height: roundedButtonRadius * 2)
+                            CGRect(x: centerX - roundedButtonRadius,
+                                   y: centerY - roundedButtonRadius,
+                                   width: roundedButtonRadius*2,
+                                   height: roundedButtonRadius*2)
         )
         guard let roundView = roundView else { return }
         roundView.backgroundColor = UIColor.red
-        roundView.layer.cornerRadius = roundedButtonRadius
+        roundView.layer.cornerRadius = roundedButtonRadius*2.1
 
         self.addArrangedSubview(roundView)
     }
@@ -83,7 +83,7 @@ final class RecordButtonStackView: UIStackView {
         guard let squareSide else { return nil }
         
         transformToStopButton.fromValue = !isRecording ? squareSide/2: 10
-        transformToStopButton.toValue = !isRecording ? 10:squareSide/2
+        transformToStopButton.toValue = !isRecording ? 10: squareSide/2
 
         let toSmallCircle = CABasicAnimation(keyPath: "transform.scale")
 
@@ -97,7 +97,6 @@ final class RecordButtonStackView: UIStackView {
         animationGroup.isRemovedOnCompletion = false
 
         return animationGroup
-
     }
 }
 

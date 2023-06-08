@@ -218,13 +218,13 @@ extension RecordVideoViewController {
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.secondsOfTimer += 1
-            guard let title = Double(self.secondsOfTimer).format(units: [.hour, .minute, .second]) else { return }
+            guard let title = Double(self.secondsOfTimer).format(units: [.minute, .second]) else { return }
             self.recordStackView.setUpRecordTimerTitle(title)
         }
     }
     
     private func stopTimer() {
-        let reset = "00:00:00"
+        let reset = "00:00"
         self.secondsOfTimer = 0
         timer?.invalidate()
         self.recordStackView.setUpRecordTimerTitle(reset)

@@ -21,11 +21,7 @@ final class RecordComponentsStackView: UIStackView {
         return stackView
     }()
     
-    let recordButton: RecordButtonStackView = {
-        let buttonStackView = RecordButtonStackView()
-        
-        return buttonStackView
-    }()
+    let recordButton = RecordButtonStackView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
 
     private let recordTimeLabel: UILabel = {
         let label = UILabel()
@@ -94,8 +90,8 @@ final class RecordComponentsStackView: UIStackView {
             recordStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             recordStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             recordStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            recordButton.widthAnchor.constraint(equalTo: recordStackView.widthAnchor, multiplier: 0.7),
-            recordButton.heightAnchor.constraint(equalTo: recordButton.widthAnchor, multiplier: 1)
+            recordButton.widthAnchor.constraint(equalTo: recordStackView.widthAnchor, multiplier: 0.5),
+            recordButton.heightAnchor.constraint(equalTo: recordButton.widthAnchor)
         ])
         
     }
