@@ -110,7 +110,7 @@ extension VideoListViewController {
     private func setUpDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<VideoListCell, VideoEntity> {
             cell,indexPath,itemIdentifier in
-            cell.video = itemIdentifier
+            cell.configureCell(with: itemIdentifier)
             cell.accessories = [.disclosureIndicator()]
         }
         

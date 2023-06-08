@@ -15,14 +15,6 @@ final class VideoContentView: UIView, UIContentView {
         }
     }
     
-    private let mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 10
-        return stackView
-    }()
-    
     private let videoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -48,7 +40,7 @@ final class VideoContentView: UIView, UIContentView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        
+
         return stackView
     }()
     
@@ -81,28 +73,30 @@ final class VideoContentView: UIView, UIContentView {
     }
     
     private func setUpView() {
-        self.backgroundColor = .white
-        self.addSubview(mainStackView)
-
-        mainStackView.addArrangedSubview(imageShadowView)
+        addSubview(imageShadowView)
         imageShadowView.addSubview(videoImageView)
-        mainStackView.addArrangedSubview(infoStackView)
+        addSubview(infoStackView)
         infoStackView.addArrangedSubview(titleLabel)
         infoStackView.addArrangedSubview(dateLabel)
-        
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+    
         imageShadowView.translatesAutoresizingMaskIntoConstraints = false
+        infoStackView.translatesAutoresizingMaskIntoConstraints = false
         videoImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            imageShadowView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
+            imageShadowView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 10),
+            imageShadowView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
+            imageShadowView.heightAnchor.constraint(equalTo: layoutMarginsGuide.heightAnchor),
             
-            imageShadowView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor, multiplier: 0.2),
-            imageShadowView.heightAnchor.constraint(equalTo: videoImageView.widthAnchor, multiplier: 0.8),
-            videoImageView.widthAnchor.constraint(equalTo: imageShadowView.widthAnchor, multiplier: 1),
-            videoImageView.heightAnchor.constraint(equalTo: imageShadowView.heightAnchor, multiplier: 1)
+            videoImageView.topAnchor.constraint(equalTo: imageShadowView.topAnchor),
+            videoImageView.leadingAnchor.constraint(equalTo: imageShadowView.leadingAnchor),
+            videoImageView.widthAnchor.constraint(equalTo: imageShadowView.widthAnchor),
+            videoImageView.heightAnchor.constraint(equalTo: videoImageView.widthAnchor, multiplier: 0.7),
+            
+            infoStackView.topAnchor.constraint(equalTo: imageShadowView.topAnchor),
+            infoStackView.leadingAnchor.constraint(equalTo: imageShadowView.trailingAnchor, constant: 10),
+            infoStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -5),
+            infoStackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
         ])
     }
     
