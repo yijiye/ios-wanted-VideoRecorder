@@ -133,7 +133,27 @@ extension VideoListViewController {
     private func createLayout() -> UICollectionViewLayout {
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         configuration.backgroundColor = .white
+        configuration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         
         return UICollectionViewCompositionalLayout.list(using: configuration)
+    }
+}
+
+// MARK: SwipeAction
+extension VideoListViewController {
+    private func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+        guard let indexPath,
+              let videoEntity = videoDataSource?.itemIdentifier(for: indexPath),
+              let id = videoEntity.id else { return nil }
+        
+        let deleteTitle = "Delete"
+        let comment = "Delete action title"
+        let deleteActionTitle = NSLocalizedString(deleteTitle, comment: comment)
+        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) {
+            [weak self] _,_,_ in
+            self?.viewModel.delete(by: id)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
