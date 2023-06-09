@@ -7,7 +7,6 @@
 
 import Combine
 import Foundation
-import CoreData
 
 final class VideoListViewModel {
     @Published private(set) var videoList: [VideoEntity] = []
@@ -24,16 +23,13 @@ final class VideoListViewModel {
         recordVideoViewModel.createSubject
             .sink { [weak self] video in
                 self?.videoList.append(video)
+                self?.videoList = self?.videoList.reversed() ?? []
             }
             .store(in: &cancellables)
     }
     
     func read(at indexPath: IndexPath) -> VideoEntity? {
         videoList[indexPath.row]
-    }
-    
-    func read(by id: UUID) -> VideoEntity? {
-        CoreDataManager.shared.read(by: id)
     }
     
     func update(from id: UUID, to video: Video) {

@@ -6,7 +6,7 @@
 //
 
 import Combine
-import AVFoundation
+import Foundation
 
 final class RecordVideoViewModel {
     var createSubject = PassthroughSubject<VideoEntity, Never>()

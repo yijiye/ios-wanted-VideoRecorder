@@ -5,8 +5,8 @@
 //  Created by 리지 on 2023/06/08.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 final class VideoListCellViewModel {
     @Published private(set) var video: VideoEntity
@@ -42,6 +42,4 @@ final class VideoListCellViewModel {
         guard let time = video.playTime else { return nil }
         return time
     }
-    
 }
-

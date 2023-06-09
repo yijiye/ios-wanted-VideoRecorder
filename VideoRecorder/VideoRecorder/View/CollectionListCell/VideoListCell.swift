@@ -5,8 +5,8 @@
 //  Created by 리지 on 2023/06/05.
 //
 
-import Combine
 import UIKit
+import Combine
 
 final class VideoListCell: UICollectionViewListCell {
     private var viewModel: VideoListCellViewModel?
