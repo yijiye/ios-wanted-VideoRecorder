@@ -272,9 +272,9 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
                 }
             } receiveValue: { [weak self] image in
                 if let image {
-                    guard let imageData = image.pngData() else { return }
-
-                    let video = Video(title: "\(title).mp4", date: Date(), savedVideo: videoData, thumbnailImage: imageData)
+                    guard let imageData = image.pngData(),
+                          let playTime = self?.fetchPlayTime(videoRecordedURL.absoluteString) else { return }
+                    let video = Video(title: "\(title).mp4", date: Date(), savedVideo: videoData, thumbnailImage: imageData, playTime: playTime)
                     self?.viewModel.create(video)
                 }
             }
@@ -308,5 +308,17 @@ extension RecordVideoViewController {
               let image = UIImage(data: imageData) else { return }
         
         recordStackView.setUpCameraRollImage(image)
+    }
+    
+    private func fetchPlayTime(_ filePath: String) -> String {
+        let filePathURL = NSURL.fileURL(withPath: filePath)
+        let asset = AVURLAsset(url: filePathURL as URL)
+        let playTimeFloat = CMTimeGetSeconds(asset.duration)
+        let playTimeSum = (playTimeFloat*100).rounded()/100
+        
+        let minute = Int(playTimeSum / 60)
+        let second = Int((playTimeSum.truncatingRemainder(dividingBy: 60)).rounded())
+        let playTime = String(format: "%0d:%02d", minute, second)
+        return playTime
     }
 }

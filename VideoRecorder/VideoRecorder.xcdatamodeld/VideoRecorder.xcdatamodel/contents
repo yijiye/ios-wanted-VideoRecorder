@@ -3,6 +3,7 @@
     <entity name="VideoEntity" representedClassName=".VideoEntity" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="playTime" optional="YES" attributeType="String"/>
         <attribute name="savedVideo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="thumbnailImage" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String"/>

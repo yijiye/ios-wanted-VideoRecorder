@@ -36,6 +36,17 @@ final class VideoContentView: UIView, UIContentView {
         return view
     }()
     
+    private let timeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .caption2)
+        label.backgroundColor = .black.withAlphaComponent(0.5)
+        label.layer.cornerRadius = 3
+        label.clipsToBounds = true
+        label.textColor = .white
+        
+        return label
+    }()
+    
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -75,6 +86,7 @@ final class VideoContentView: UIView, UIContentView {
     private func setUpView() {
         addSubview(imageShadowView)
         imageShadowView.addSubview(videoImageView)
+        videoImageView.addSubview(timeLabel)
         addSubview(infoStackView)
         infoStackView.addArrangedSubview(titleLabel)
         infoStackView.addArrangedSubview(dateLabel)
@@ -82,6 +94,7 @@ final class VideoContentView: UIView, UIContentView {
         imageShadowView.translatesAutoresizingMaskIntoConstraints = false
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         videoImageView.translatesAutoresizingMaskIntoConstraints = false
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageShadowView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             imageShadowView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 10),
@@ -93,7 +106,10 @@ final class VideoContentView: UIView, UIContentView {
             videoImageView.widthAnchor.constraint(equalTo: imageShadowView.widthAnchor),
             videoImageView.heightAnchor.constraint(equalTo: videoImageView.widthAnchor, multiplier: 0.8),
             videoImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageShadowView.bottomAnchor),
-            
+       
+            timeLabel.leadingAnchor.constraint(equalTo: videoImageView.leadingAnchor, constant: 10),
+            timeLabel.bottomAnchor.constraint(equalTo: videoImageView.bottomAnchor, constant: -5),
+
             infoStackView.topAnchor.constraint(equalTo: imageShadowView.topAnchor),
             infoStackView.leadingAnchor.constraint(equalTo: imageShadowView.trailingAnchor, constant: 10),
             infoStackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -5),
@@ -104,6 +120,7 @@ final class VideoContentView: UIView, UIContentView {
     private func apply(_ configuration: VideoContentConfiguration) {
         guard let thumbnailImage = configuration.thumbnailImage else { return }
         videoImageView.image = thumbnailImage
+        timeLabel.text = configuration.timeLabel
         titleLabel.text = configuration.title
         dateLabel.text = configuration.date
     }

@@ -20,6 +20,7 @@ extension VideoEntity {
     @NSManaged public var title: String?
     @NSManaged public var savedVideo: Data?
     @NSManaged public var thumbnailImage: Data?
+    @NSManaged public var playTime: String?
 
 }
 

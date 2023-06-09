@@ -15,15 +15,22 @@ final class VideoListCell: UICollectionViewListCell {
     override func updateConfiguration(using state: UICellConfigurationState) {
         var configuration = VideoContentConfiguration().updated(for: state)
         guard let title = viewModel?.title,
-            let date = viewModel?.date,
+              let date = viewModel?.date,
               let imageData = viewModel?.thumbnailImage,
-              let thumbnailImage = UIImage(data: imageData) else { return }
-       
+              let thumbnailImage = UIImage(data: imageData),
+              let time = viewModel?.time else { return }
+        
         configuration.title = title
         configuration.date = date
         configuration.thumbnailImage = thumbnailImage
+        configuration.timeLabel = time
         
         contentConfiguration = configuration
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cancellables.removeAll()
     }
     
     private func bind() {

@@ -13,11 +13,13 @@ struct Video: Hashable {
     let date: Date
     let savedVideo: Data
     let thumbnailImage: Data
+    let playTime: String
     
-    init(title: String, date: Date, savedVideo: Data, thumbnailImage: Data) {
+    init(title: String, date: Date, savedVideo: Data, thumbnailImage: Data, playTime: String) {
         self.title = title
         self.date = date
         self.savedVideo = savedVideo
         self.thumbnailImage = thumbnailImage
+        self.playTime = playTime
     }
 }

@@ -38,5 +38,10 @@ final class VideoListCellViewModel {
         return imageData
     }
     
+    var time: String? {
+        guard let time = video.playTime else { return nil }
+        return time
+    }
+    
 }
 
