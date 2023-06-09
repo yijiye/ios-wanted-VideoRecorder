@@ -6,7 +6,6 @@
 //
 
 import Combine
-import UIKit
 import AVFoundation
 
 final class RecordVideoViewModel {
@@ -20,25 +19,10 @@ final class RecordVideoViewModel {
         createSubject.send(data)
     }
     
-    func generateThumbnail(from url: URL) -> Future<UIImage?, RecordingError> {
-        return Future<UIImage?, RecordingError> { promise in
-            DispatchQueue.global().async {
-                let asset = AVAsset(url: url)
-                let imageGenerator = AVAssetImageGenerator(asset: asset)
-                imageGenerator.appliesPreferredTrackTransform = true
-
-                let time = CMTime(seconds: 1, preferredTimescale: 1)
-
-                guard let cgImage = try? imageGenerator.copyCGImage(at: time, actualTime: nil) else {
-                    promise(.failure(.thumbnail))
-                    return
-                }
-                let thumbnailImage = UIImage(cgImage: cgImage)
-                promise(.success(thumbnailImage))
-            }
-        }
+    func readLastVideo() -> VideoEntity? {
+        return CoreDataManager.shared.readLast()
     }
-    
+
     func createVideoURL() -> URL? {
         let directory = NSTemporaryDirectory() as NSString
         

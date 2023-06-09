@@ -36,6 +36,17 @@ final class CoreDataManager {
         }
     }
     
+    func readLast() -> VideoEntity? {
+        guard let context else { return nil }
+        
+        do {
+            let data = try context.fetch(VideoEntity.fetchRequest())
+            return data.last
+        } catch {
+            return nil
+        }
+    }
+    
     func readAll() -> [VideoEntity]? {
         guard let context else { return nil }
         

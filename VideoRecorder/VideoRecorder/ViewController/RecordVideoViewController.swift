@@ -8,7 +8,6 @@
 import UIKit
 import Combine
 import AVFoundation
-import Photos
 
 final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     enum CameraMode {
@@ -60,7 +59,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
-        fetchCameraRoll()
+        fetchLastImage()
         recordStackView.recordButton.delegate = self
     }
     
@@ -262,7 +261,7 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
     }
     
     private func fetchThumbnail(from videoRecordedURL: URL, videoData: Data, title: String) {
-        viewModel.generateThumbnail(from: videoRecordedURL)
+        generateThumbnail(from: videoRecordedURL)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -276,36 +275,38 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
                     guard let imageData = image.pngData() else { return }
 
                     let video = Video(title: "\(title).mp4", date: Date(), savedVideo: videoData, thumbnailImage: imageData)
-                    self?.saveVideo(video, url: videoRecordedURL)
+                    self?.viewModel.create(video)
                 }
             }
             .store(in: &cancellables)
     }
     
-    private func saveVideo(_ video: Video, url: URL) {
-        UISaveVideoAtPathToSavedPhotosAlbum(url.path, nil, nil, nil)
-        viewModel.create(video)
-    }
-}
+    private func generateThumbnail(from url: URL) -> Future<UIImage?, RecordingError> {
+        return Future<UIImage?, RecordingError> { promise in
+            DispatchQueue.global().async {
+                let asset = AVAsset(url: url)
+                let imageGenerator = AVAssetImageGenerator(asset: asset)
+                imageGenerator.appliesPreferredTrackTransform = true
 
-// MARK: PHPhotoLibraryChangeObserver
-extension RecordVideoViewController {
-    private func fetchCameraRoll() {
-        let cameraRoll: PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
-        
-        guard let cameraRollColletction = cameraRoll.firstObject else { return }
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
-        guard let fetchResult = PHAsset.fetchAssets(in: cameraRollColletction, options: fetchOptions).firstObject else { return }
-        let imageManager = PHCachingImageManager()
-        
-        imageManager.requestImage(for: fetchResult, targetSize: .zero, contentMode: .aspectFill, options: nil) { [weak self] image, _ in
-            guard let image else { return }
-            self?.recordStackView.setUpCameraRollImage(image)
+                let time = CMTime(seconds: 1, preferredTimescale: 1)
+
+                guard let cgImage = try? imageGenerator.copyCGImage(at: time, actualTime: nil) else {
+                    promise(.failure(.thumbnail))
+                    return
+                }
+                let thumbnailImage = UIImage(cgImage: cgImage)
+                promise(.success(thumbnailImage))
+            }
         }
     }
 }
 
-
-
+extension RecordVideoViewController {
+    private func fetchLastImage() {
+        guard let lastVideo = viewModel.readLastVideo(),
+              let imageData = lastVideo.thumbnailImage,
+              let image = UIImage(data: imageData) else { return }
+        
+        recordStackView.setUpCameraRollImage(image)
+    }
+}
