@@ -5,9 +5,10 @@
 //  Created by 리지 on 2023/06/06.
 //
 
+import UIKit
 import Combine
 import AVFoundation
-import UIKit
+import Photos
 
 final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     enum CameraMode {
@@ -59,6 +60,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSession()
+        fetchCameraRoll()
         recordStackView.recordButton.delegate = self
     }
     
@@ -233,7 +235,12 @@ extension RecordVideoViewController {
 
 // MARK: AVCaptureFileOutputRecordingDelegate
 extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
+        recordStackView.changeCameraModeButton.isEnabled = false
+      }
+    
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        recordStackView.changeCameraModeButton.isEnabled = true
         if (error != nil) {
             print(error?.localizedDescription as Any)
         } else {
@@ -281,6 +288,24 @@ extension RecordVideoViewController: AVCaptureFileOutputRecordingDelegate {
     }
 }
 
+// MARK: PHPhotoLibraryChangeObserver
+extension RecordVideoViewController {
+    private func fetchCameraRoll() {
+        let cameraRoll: PHFetchResult<PHAssetCollection> = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        
+        guard let cameraRollColletction = cameraRoll.firstObject else { return }
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        guard let fetchResult = PHAsset.fetchAssets(in: cameraRollColletction, options: fetchOptions).firstObject else { return }
+        let imageManager = PHCachingImageManager()
+        
+        imageManager.requestImage(for: fetchResult, targetSize: .zero, contentMode: .aspectFill, options: nil) { [weak self] image, _ in
+            guard let image else { return }
+            self?.recordStackView.setUpCameraRollImage(image)
+        }
+    }
+}
 
 
 
