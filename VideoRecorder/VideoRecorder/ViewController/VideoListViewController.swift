@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import AVKit
 
 final class VideoListViewController: UIViewController {
     enum Section {
@@ -41,6 +42,7 @@ final class VideoListViewController: UIViewController {
         
         viewModel.readAll()
 //        viewModel.deleteAll()
+        videoListCollectionView.delegate = self 
         setUpDataSource()
         setUpView()
         configureNavigationBar()
@@ -155,5 +157,27 @@ extension VideoListViewController {
         }
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+}
+
+// MARK: CollectionViewDelegate
+extension VideoListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let videoEntity = viewModel.read(at: indexPath),
+              let video = videoEntity.savedVideo,
+              let videoURL = viewModel.createVideoURL() else { return }
+        
+        do {
+            try video.write(to: videoURL)
+            let playerController = AVPlayerViewController()
+            let player = AVPlayer(url: videoURL)
+            playerController.player = player
+            playerController.entersFullScreenWhenPlaybackBegins = true
+            self.present(playerController, animated: true) {
+                player.play()
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
 }

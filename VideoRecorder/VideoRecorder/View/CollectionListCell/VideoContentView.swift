@@ -27,10 +27,10 @@ final class VideoContentView: UIView, UIContentView {
     private let imageShadowView: UIView = {
         let view = UIView()
         view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowOpacity = 0.7
-        view.layer.shadowRadius = 5
-        view.layer.shadowColor = UIColor.gray.cgColor
-        view.layer.shadowPath = UIBezierPath(rect: CGRect(x: 5, y: 5, width: 60, height: 50)).cgPath
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 2
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowPath = UIBezierPath(rect: CGRect(x: 2, y: 2, width: 50, height: 35)).cgPath
         view.layer.masksToBounds = false
         
         return view
@@ -39,7 +39,7 @@ final class VideoContentView: UIView, UIContentView {
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
 
         return stackView
     }()
@@ -47,7 +47,7 @@ final class VideoContentView: UIView, UIContentView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
         return label
     }()
@@ -86,12 +86,13 @@ final class VideoContentView: UIView, UIContentView {
             imageShadowView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 5),
             imageShadowView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 10),
             imageShadowView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
-            imageShadowView.heightAnchor.constraint(equalTo: layoutMarginsGuide.heightAnchor),
+            imageShadowView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -5),
             
             videoImageView.topAnchor.constraint(equalTo: imageShadowView.topAnchor),
             videoImageView.leadingAnchor.constraint(equalTo: imageShadowView.leadingAnchor),
             videoImageView.widthAnchor.constraint(equalTo: imageShadowView.widthAnchor),
-            videoImageView.heightAnchor.constraint(equalTo: videoImageView.widthAnchor, multiplier: 0.7),
+            videoImageView.heightAnchor.constraint(equalTo: videoImageView.widthAnchor, multiplier: 0.8),
+            videoImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageShadowView.bottomAnchor),
             
             infoStackView.topAnchor.constraint(equalTo: imageShadowView.topAnchor),
             infoStackView.leadingAnchor.constraint(equalTo: imageShadowView.trailingAnchor, constant: 10),

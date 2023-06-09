@@ -28,6 +28,10 @@ final class VideoListViewModel {
             .store(in: &cancellables)
     }
     
+    func read(at indexPath: IndexPath) -> VideoEntity? {
+        videoList[indexPath.row]
+    }
+    
     func read(by id: UUID) -> VideoEntity? {
         CoreDataManager.shared.read(by: id)
     }
@@ -48,5 +52,16 @@ final class VideoListViewModel {
     
     func deleteAll() {
         CoreDataManager.shared.deleteAll()
+    }
+    
+    func createVideoURL() -> URL? {
+        let directory = NSTemporaryDirectory() as NSString
+
+        if directory != "" {
+            let path = directory.appendingPathComponent(NSUUID().uuidString + ".mp4")
+            return URL(fileURLWithPath: path)
+        }
+
+        return nil
     }
 }
