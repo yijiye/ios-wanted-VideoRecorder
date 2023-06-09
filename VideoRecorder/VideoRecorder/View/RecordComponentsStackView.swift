@@ -10,6 +10,7 @@ import UIKit
 final class RecordComponentsStackView: UIView {
     private let cameraRollImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         return imageView
@@ -26,6 +27,7 @@ final class RecordComponentsStackView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
+        stackView.distribution = .fill
         
         return stackView
     }()
@@ -88,14 +90,14 @@ final class RecordComponentsStackView: UIView {
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cameraRollImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            cameraRollImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            cameraRollImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.25),
-            cameraRollImageView.heightAnchor.constraint(equalTo: cameraRollImageView.widthAnchor, multiplier: 0.8),
+            cameraRollImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            cameraRollImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.15),
+            cameraRollImageView.heightAnchor.constraint(equalTo: cameraRollImageView.widthAnchor),
             
             upperStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            upperStackView.leadingAnchor.constraint(equalTo: cameraRollImageView.trailingAnchor, constant: -10),
+            upperStackView.leadingAnchor.constraint(equalTo: cameraRollImageView.trailingAnchor),
             upperStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            upperStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            upperStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             recordButton.widthAnchor.constraint(lessThanOrEqualTo: upperStackView.widthAnchor, multiplier: 0.3),
             recordButton.heightAnchor.constraint(equalTo: recordButton.widthAnchor)

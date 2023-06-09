@@ -49,7 +49,7 @@ final class RecordButtonStackView: UIStackView {
 
         layer.cornerRadius = (radius*2 - lineWidth)/2
         layer.backgroundColor = UIColor.clear.cgColor
-        layer.borderWidth = lineWidth
+        layer.borderWidth = lineWidth*1.1
         layer.borderColor = UIColor.white.cgColor
         layer.opacity = 1
 
