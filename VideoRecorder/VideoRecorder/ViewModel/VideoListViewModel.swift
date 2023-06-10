@@ -10,6 +10,7 @@ import Foundation
 
 final class VideoListViewModel {
     @Published private(set) var videoList: [VideoEntity] = []
+    private var reversedList: [VideoEntity] = []
     
     private var cancellables = Set<AnyCancellable>()
     private var recordVideoViewModel: RecordVideoViewModel
@@ -22,10 +23,14 @@ final class VideoListViewModel {
     func bind() {
         recordVideoViewModel.createSubject
             .sink { [weak self] video in
-                self?.videoList.append(video)
-                self?.videoList = self?.videoList.reversed() ?? []
+                self?.reversedList.append(video)
+                self?.updateList()
             }
             .store(in: &cancellables)
+    }
+    
+    func updateList() {
+        self.videoList = self.reversedList.reversed()
     }
     
     func read(at indexPath: IndexPath) -> VideoEntity? {
@@ -43,7 +48,8 @@ final class VideoListViewModel {
     
     func readAll() {
         guard let data = CoreDataManager.shared.readAll() else { return }
-        videoList.append(contentsOf: data)
+        reversedList.append(contentsOf: data)
+        self.updateList()
     }
     
     func deleteAll() {
