@@ -28,6 +28,11 @@
 		FB2345702A2F465300A08E0D /* RecordComponentsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */; };
 		FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */; };
 		FB42DF992A32179200238381 /* VideoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DF982A32179200238381 /* VideoListCellViewModel.swift */; };
+		FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB42DFB32A341C8900238381 /* GoogleService-Info.plist */; };
+		FB42DFB72A341D9C00238381 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB62A341D9C00238381 /* FirebaseFirestore */; };
+		FB42DFB92A341D9C00238381 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */; };
+		FB42DFBB2A341D9C00238381 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFBA2A341D9C00238381 /* FirebaseStorage */; };
+		FB42DFBD2A3420BB00238381 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */; };
 		FB6373B32A31BBF400D20629 /* RecordingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B22A31BBF400D20629 /* RecordingError.swift */; };
 		FB6373B52A31C05B00D20629 /* RecordButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */; };
 		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
@@ -68,6 +73,8 @@
 		FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsStackView.swift; sourceTree = "<group>"; };
 		FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonStackView.swift; sourceTree = "<group>"; };
 		FB42DF982A32179200238381 /* VideoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCellViewModel.swift; sourceTree = "<group>"; };
+		FB42DFB32A341C8900238381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		FB6373B22A31BBF400D20629 /* RecordingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingError.swift; sourceTree = "<group>"; };
 		FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonDelegate.swift; sourceTree = "<group>"; };
 		FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
@@ -78,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB42DFB72A341D9C00238381 /* FirebaseFirestore in Frameworks */,
+				FB42DFB92A341D9C00238381 /* FirebaseFirestoreSwift in Frameworks */,
+				FB42DFBB2A341D9C00238381 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +134,7 @@
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
 				FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */,
 				FB2345132A2D9BA800A08E0D /* Info.plist */,
+				FB42DFB32A341C8900238381 /* GoogleService-Info.plist */,
 			);
 			path = VideoRecorder;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 		FB23455F2A2EDBFA00A08E0D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */,
 				FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */,
 				FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */,
 				FB42DF982A32179200238381 /* VideoListCellViewModel.swift */,
@@ -212,6 +224,11 @@
 			dependencies = (
 			);
 			name = VideoRecorder;
+			packageProductDependencies = (
+				FB42DFB62A341D9C00238381 /* FirebaseFirestore */,
+				FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */,
+				FB42DFBA2A341D9C00238381 /* FirebaseStorage */,
+			);
 			productName = VideoRecorder;
 			productReference = FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */;
 			productType = "com.apple.product-type.application";
@@ -262,6 +279,9 @@
 				Base,
 			);
 			mainGroup = FB2344F62A2D9BA600A08E0D;
+			packageReferences = (
+				FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FB2345002A2D9BA600A08E0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,6 +299,7 @@
 			files = (
 				FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */,
 				FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */,
+				FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +329,7 @@
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
 				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
+				FB42DFBD2A3420BB00238381 /* FirebaseStorageManager.swift in Sources */,
 				FB6373B32A31BBF400D20629 /* RecordingError.swift in Sources */,
 				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
 				FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */,
@@ -587,6 +609,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB42DFB62A341D9C00238381 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		FB42DFBA2A341D9C00238381 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */ = {

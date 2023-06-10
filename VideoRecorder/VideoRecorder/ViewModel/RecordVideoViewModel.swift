@@ -15,6 +15,7 @@ final class RecordVideoViewModel {
     
     func create(_ video: Video) {
         CoreDataManager.shared.create(video)
+        FirebaseStorageManager.uploadVideo(video.savedVideo, videoName: video.title)
         guard let data = CoreDataManager.shared.read(by: video.id) else { return }
         createSubject.send(data)
     }
