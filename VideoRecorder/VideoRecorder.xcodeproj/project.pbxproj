@@ -14,7 +14,6 @@
 		FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */; };
 		FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB23450E2A2D9BA800A08E0D /* Assets.xcassets */; };
 		FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */; };
-		FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */; };
 		FB2345362A2DA5E100A08E0D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345352A2DA5E100A08E0D /* Video.swift */; };
 		FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345392A2DA83400A08E0D /* VideoListCell.swift */; };
 		FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */; };
@@ -60,7 +59,6 @@
 		FB2345112A2D9BA800A08E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB2345132A2D9BA800A08E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorderTests.swift; sourceTree = "<group>"; };
 		FB2345352A2DA5E100A08E0D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentConfiguration.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */,
 				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
 				FB2345012A2D9BA600A08E0D /* VideoRecorder */,
-				FB23451B2A2D9BA800A08E0D /* VideoRecorderTests */,
 				FB2345002A2D9BA600A08E0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,14 +136,6 @@
 				FB42DFB32A341C8900238381 /* GoogleService-Info.plist */,
 			);
 			path = VideoRecorder;
-			sourceTree = "<group>";
-		};
-		FB23451B2A2D9BA800A08E0D /* VideoRecorderTests */ = {
-			isa = PBXGroup;
-			children = (
-				FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */,
-			);
-			path = VideoRecorderTests;
 			sourceTree = "<group>";
 		};
 		FB2345372A2DA5E400A08E0D /* Model */ = {
@@ -350,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
