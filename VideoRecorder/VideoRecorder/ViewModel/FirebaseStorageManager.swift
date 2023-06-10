@@ -9,13 +9,22 @@ import FirebaseStorage
 import Firebase
 
 final class FirebaseStorageManager {
-    static func uploadVideo(_ video: Data, videoName: String) {
+    static func uploadVideo(_ video: Data, id: UUID) {
         let metaData = StorageMetadata()
         metaData.contentType = "/mp4"
         
-        let videoName = videoName
-        
-        let firebaseReference = Storage.storage().reference().child("\(videoName)")
+        let firebaseReference = Storage.storage().reference().child("\(id)")
         firebaseReference.putData(video, metadata: metaData)
+    }
+    
+    static func deleteVideo(id: UUID) {
+        let firebaseReference = Storage.storage().reference().child("\(id)")
+        firebaseReference.delete { error in
+            if let error = error {
+                print("동영상 삭제 실패: \(error)")
+            } else {
+                print("동영상 삭제 성공")
+            }
+        }
     }
 }

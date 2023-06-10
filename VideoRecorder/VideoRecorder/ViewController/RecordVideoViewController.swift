@@ -39,8 +39,8 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         return buttonView
     }()
     
-    private let recordStackView: RecordComponentsStackView = {
-        let stackView = RecordComponentsStackView()
+    private let recordStackView: RecordComponentsView = {
+        let stackView = RecordComponentsView()
         
         return stackView
     }()

@@ -25,7 +25,7 @@
 		FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */; };
 		FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */; };
 		FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */; };
-		FB2345702A2F465300A08E0D /* RecordComponentsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */; };
+		FB2345702A2F465300A08E0D /* RecordComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */; };
 		FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */; };
 		FB42DF992A32179200238381 /* VideoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DF982A32179200238381 /* VideoListCellViewModel.swift */; };
 		FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB42DFB32A341C8900238381 /* GoogleService-Info.plist */; };
@@ -71,7 +71,7 @@
 		FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewModel.swift; sourceTree = "<group>"; };
 		FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
 		FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
-		FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsStackView.swift; sourceTree = "<group>"; };
+		FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsView.swift; sourceTree = "<group>"; };
 		FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonStackView.swift; sourceTree = "<group>"; };
 		FB42DF982A32179200238381 /* VideoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCellViewModel.swift; sourceTree = "<group>"; };
 		FB42DFB32A341C8900238381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				FB2345732A30004100A08E0D /* CollectionListCell */,
 				FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */,
 				FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */,
-				FB23456F2A2F465300A08E0D /* RecordComponentsStackView.swift */,
+				FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */,
 				FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */,
 				FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */,
-				FB2345702A2F465300A08E0D /* RecordComponentsStackView.swift in Sources */,
+				FB2345702A2F465300A08E0D /* RecordComponentsView.swift in Sources */,
 				FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */,
 				FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */,
 				FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */,

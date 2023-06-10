@@ -44,6 +44,7 @@ final class VideoListViewModel {
     func delete(by id: UUID) {
         videoList.removeAll { $0.id == id }
         CoreDataManager.shared.delete(by: id)
+        FirebaseStorageManager.deleteVideo(id: id)
     }
     
     func readAll() {

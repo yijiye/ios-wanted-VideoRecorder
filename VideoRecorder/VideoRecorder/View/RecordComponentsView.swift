@@ -1,5 +1,5 @@
 //
-//  RecordComponentsStackView.swift
+//  RecordComponentsView.swift
 //  VideoRecorder
 //
 //  Created by 리지 on 2023/06/06.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RecordComponentsStackView: UIView {
+final class RecordComponentsView: UIView {
     private let cameraRollImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -105,7 +105,7 @@ final class RecordComponentsStackView: UIView {
     }
 }
 
-extension RecordComponentsStackView {
+extension RecordComponentsView {
     func setUpRecordTimerTitle(_ title: String) {
         recordTimeLabel.text = title
     }
