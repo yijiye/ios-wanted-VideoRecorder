@@ -33,6 +33,7 @@
 		FB42DFB92A341D9C00238381 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */; };
 		FB42DFBB2A341D9C00238381 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFBA2A341D9C00238381 /* FirebaseStorage */; };
 		FB42DFBD2A3420BB00238381 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */; };
+		FB42DFC12A34A08700238381 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DFC02A34A08700238381 /* TimerModel.swift */; };
 		FB6373B32A31BBF400D20629 /* RecordingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B22A31BBF400D20629 /* RecordingError.swift */; };
 		FB6373B52A31C05B00D20629 /* RecordButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */; };
 		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
@@ -75,6 +76,7 @@
 		FB42DF982A32179200238381 /* VideoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCellViewModel.swift; sourceTree = "<group>"; };
 		FB42DFB32A341C8900238381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		FB42DFC02A34A08700238381 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		FB6373B22A31BBF400D20629 /* RecordingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingError.swift; sourceTree = "<group>"; };
 		FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonDelegate.swift; sourceTree = "<group>"; };
 		FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				FB2345352A2DA5E100A08E0D /* Video.swift */,
 				FB2345512A2E159B00A08E0D /* CoreDataManager.swift */,
 				FB6373B22A31BBF400D20629 /* RecordingError.swift */,
+				FB42DFC02A34A08700238381 /* TimerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */,
 				FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */,
 				FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */,
+				FB42DFC12A34A08700238381 /* TimerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

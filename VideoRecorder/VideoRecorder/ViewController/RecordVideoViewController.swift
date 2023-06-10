@@ -24,8 +24,6 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     private var videoInput: AVCaptureInput?
     
     private var outputURL: URL?
-    private var timer: Timer?
-    private var secondsOfTimer = 0
    
     private lazy var videoPreViewLayer: AVCaptureVideoPreviewLayer = {
         let previewLayer = AVCaptureVideoPreviewLayer()
@@ -58,6 +56,7 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         setUpSession()
         fetchLastImage()
         recordStackView.recordButton.delegate = self
@@ -75,6 +74,14 @@ final class RecordVideoViewController: UIViewController, RecordButtonDelegate {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.captureSession.stopRunning()
         }
+    }
+    
+    private func bind() {
+        viewModel.$timerTitle
+            .sink { [weak self] label in
+                self?.recordStackView.setUpRecordTimerTitle(label)
+            }
+            .store(in: &cancellables)
     }
 
     private func setUpSession() {
@@ -217,18 +224,12 @@ extension RecordVideoViewController {
 // MARK: Timer
 extension RecordVideoViewController {
     private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.secondsOfTimer += 1
-            guard let title = Double(self.secondsOfTimer).format(units: [.minute, .second]) else { return }
-            self.recordStackView.setUpRecordTimerTitle(title)
-        }
+        viewModel.startTimer()
     }
     
     private func stopTimer() {
-        let reset = "00:00"
-        self.secondsOfTimer = 0
-        timer?.invalidate()
-        self.recordStackView.setUpRecordTimerTitle(reset)
+        viewModel.stopTimer()
+        self.recordStackView.setUpRecordTimerTitle(viewModel.timerTitle)
     }
 }
 
