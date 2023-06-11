@@ -145,6 +145,7 @@
 				FB2345512A2E159B00A08E0D /* CoreDataManager.swift */,
 				FB6373B22A31BBF400D20629 /* RecordingError.swift */,
 				FB42DFC02A34A08700238381 /* TimerModel.swift */,
+				FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,7 +155,7 @@
 			children = (
 				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
 				FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */,
-				FB2345682A2F0C2900A08E0D /* Helper */,
+				FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -179,15 +180,6 @@
 				FB42DF982A32179200238381 /* VideoListCellViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FB2345682A2F0C2900A08E0D /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */,
-				FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		FB2345732A30004100A08E0D /* CollectionListCell */ = {

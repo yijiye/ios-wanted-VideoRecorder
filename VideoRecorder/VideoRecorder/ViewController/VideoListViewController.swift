@@ -41,7 +41,6 @@ final class VideoListViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.readAll()
-//        viewModel.deleteAll()
         videoListCollectionView.delegate = self 
         setUpDataSource()
         setUpView()

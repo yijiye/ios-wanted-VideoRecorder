@@ -198,14 +198,6 @@ extension RecordVideoViewController {
         captureSession.addInput(videoInput)
     }
     
-    func tapButton(isRecording: Bool) {
-        if isRecording == true {
-            startRecording()
-        } else {
-            stopRecording()
-        }
-    }
-    
     private func startRecording() {
         startTimer()
         outputURL = viewModel.createVideoURL()
@@ -217,6 +209,14 @@ extension RecordVideoViewController {
         if videoOutput.isRecording == true {
             stopTimer()
             videoOutput.stopRecording()
+        }
+    }
+    
+    func tapButton(isRecording: Bool) {
+        if isRecording == true {
+            startRecording()
+        } else {
+            stopRecording()
         }
     }
 }
