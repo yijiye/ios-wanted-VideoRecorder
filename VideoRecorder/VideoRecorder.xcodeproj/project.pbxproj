@@ -7,13 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0EAD462A3043F8004C4B7D /* VideoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */; };
 		FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345022A2D9BA600A08E0D /* AppDelegate.swift */; };
 		FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */; };
-		FB2345072A2D9BA600A08E0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345062A2D9BA600A08E0D /* ViewController.swift */; };
+		FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */; };
 		FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */; };
 		FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB23450E2A2D9BA800A08E0D /* Assets.xcassets */; };
 		FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */; };
-		FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */; };
+		FB2345362A2DA5E100A08E0D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345352A2DA5E100A08E0D /* Video.swift */; };
+		FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345392A2DA83400A08E0D /* VideoListCell.swift */; };
+		FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */; };
+		FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */; };
+		FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345512A2E159B00A08E0D /* CoreDataManager.swift */; };
+		FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */; };
+		FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */; };
+		FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */; };
+		FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */; };
+		FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */; };
+		FB2345702A2F465300A08E0D /* RecordComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */; };
+		FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */; };
+		FB42DF992A32179200238381 /* VideoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DF982A32179200238381 /* VideoListCellViewModel.swift */; };
+		FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB42DFB32A341C8900238381 /* GoogleService-Info.plist */; };
+		FB42DFB72A341D9C00238381 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB62A341D9C00238381 /* FirebaseFirestore */; };
+		FB42DFB92A341D9C00238381 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */; };
+		FB42DFBB2A341D9C00238381 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFBA2A341D9C00238381 /* FirebaseStorage */; };
+		FB42DFBD2A3420BB00238381 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */; };
+		FB42DFC12A34A08700238381 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DFC02A34A08700238381 /* TimerModel.swift */; };
+		FB6373B32A31BBF400D20629 /* RecordingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B22A31BBF400D20629 /* RecordingError.swift */; };
+		FB6373B52A31C05B00D20629 /* RecordButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */; };
+		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,16 +49,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewModel.swift; sourceTree = "<group>"; };
 		FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2345022A2D9BA600A08E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB2345062A2D9BA600A08E0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
 		FB23450C2A2D9BA600A08E0D /* VideoRecorder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoRecorder.xcdatamodel; sourceTree = "<group>"; };
 		FB23450E2A2D9BA800A08E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2345112A2D9BA800A08E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB2345132A2D9BA800A08E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorderTests.swift; sourceTree = "<group>"; };
+		FB2345352A2DA5E100A08E0D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
+		FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentConfiguration.swift; sourceTree = "<group>"; };
+		FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentView.swift; sourceTree = "<group>"; };
+		FB2345512A2E159B00A08E0D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataClass.swift"; path = "CoreData/VideoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VideoEntity+CoreDataProperties.swift"; path = "CoreData/VideoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewModel.swift; sourceTree = "<group>"; };
+		FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
+		FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsView.swift; sourceTree = "<group>"; };
+		FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonStackView.swift; sourceTree = "<group>"; };
+		FB42DF982A32179200238381 /* VideoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCellViewModel.swift; sourceTree = "<group>"; };
+		FB42DFB32A341C8900238381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		FB42DFC02A34A08700238381 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		FB6373B22A31BBF400D20629 /* RecordingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingError.swift; sourceTree = "<group>"; };
+		FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonDelegate.swift; sourceTree = "<group>"; };
+		FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB42DFB72A341D9C00238381 /* FirebaseFirestore in Frameworks */,
+				FB42DFB92A341D9C00238381 /* FirebaseFirestoreSwift in Frameworks */,
+				FB42DFBB2A341D9C00238381 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +104,10 @@
 		FB2344F62A2D9BA600A08E0D = {
 			isa = PBXGroup;
 			children = (
+				FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */,
+				FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */,
+				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
 				FB2345012A2D9BA600A08E0D /* VideoRecorder */,
-				FB23451B2A2D9BA800A08E0D /* VideoRecorderTests */,
 				FB2345002A2D9BA600A08E0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,23 +124,72 @@
 		FB2345012A2D9BA600A08E0D /* VideoRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				FB2345372A2DA5E400A08E0D /* Model */,
+				FB23453B2A2DA83A00A08E0D /* View */,
+				FB2345382A2DA79D00A08E0D /* ViewController */,
+				FB23455F2A2EDBFA00A08E0D /* ViewModel */,
 				FB2345022A2D9BA600A08E0D /* AppDelegate.swift */,
 				FB2345042A2D9BA600A08E0D /* SceneDelegate.swift */,
-				FB2345062A2D9BA600A08E0D /* ViewController.swift */,
 				FB23450E2A2D9BA800A08E0D /* Assets.xcassets */,
 				FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */,
 				FB2345132A2D9BA800A08E0D /* Info.plist */,
-				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
+				FB42DFB32A341C8900238381 /* GoogleService-Info.plist */,
 			);
 			path = VideoRecorder;
 			sourceTree = "<group>";
 		};
-		FB23451B2A2D9BA800A08E0D /* VideoRecorderTests */ = {
+		FB2345372A2DA5E400A08E0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FB23451C2A2D9BA800A08E0D /* VideoRecorderTests.swift */,
+				FB2345352A2DA5E100A08E0D /* Video.swift */,
+				FB2345512A2E159B00A08E0D /* CoreDataManager.swift */,
+				FB6373B22A31BBF400D20629 /* RecordingError.swift */,
+				FB42DFC02A34A08700238381 /* TimerModel.swift */,
+				FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */,
 			);
-			path = VideoRecorderTests;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB2345382A2DA79D00A08E0D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345062A2D9BA600A08E0D /* VideoListViewController.swift */,
+				FB2345622A2EE9C300A08E0D /* RecordVideoViewController.swift */,
+				FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FB23453B2A2DA83A00A08E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345732A30004100A08E0D /* CollectionListCell */,
+				FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */,
+				FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */,
+				FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB23455F2A2EDBFA00A08E0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */,
+				FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */,
+				FB2345602A2EDC1200A08E0D /* RecordVideoViewModel.swift */,
+				FB42DF982A32179200238381 /* VideoListCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FB2345732A30004100A08E0D /* CollectionListCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB2345392A2DA83400A08E0D /* VideoListCell.swift */,
+				FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */,
+				FB23453E2A2DBCB900A08E0D /* VideoContentView.swift */,
+			);
+			path = CollectionListCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +208,11 @@
 			dependencies = (
 			);
 			name = VideoRecorder;
+			packageProductDependencies = (
+				FB42DFB62A341D9C00238381 /* FirebaseFirestore */,
+				FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */,
+				FB42DFBA2A341D9C00238381 /* FirebaseStorage */,
+			);
 			productName = VideoRecorder;
 			productReference = FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +263,9 @@
 				Base,
 			);
 			mainGroup = FB2344F62A2D9BA600A08E0D;
+			packageReferences = (
+				FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FB2345002A2D9BA600A08E0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +283,7 @@
 			files = (
 				FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */,
 				FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */,
+				FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,10 +301,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB2345072A2D9BA600A08E0D /* ViewController.swift in Sources */,
+				FB23455D2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift in Sources */,
+				FB2345632A2EE9C300A08E0D /* RecordVideoViewController.swift in Sources */,
+				FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */,
+				FB2345702A2F465300A08E0D /* RecordComponentsView.swift in Sources */,
+				FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */,
+				FB2345072A2D9BA600A08E0D /* VideoListViewController.swift in Sources */,
+				FB2345612A2EDC1200A08E0D /* RecordVideoViewModel.swift in Sources */,
+				FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */,
 				FB2345032A2D9BA600A08E0D /* AppDelegate.swift in Sources */,
 				FB2345052A2D9BA600A08E0D /* SceneDelegate.swift in Sources */,
 				FB23450D2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld in Sources */,
+				FB2345362A2DA5E100A08E0D /* Video.swift in Sources */,
+				FB42DFBD2A3420BB00238381 /* FirebaseStorageManager.swift in Sources */,
+				FB6373B32A31BBF400D20629 /* RecordingError.swift in Sources */,
+				FB23453A2A2DA83400A08E0D /* VideoListCell.swift in Sources */,
+				FB23453F2A2DBCB900A08E0D /* VideoContentView.swift in Sources */,
+				FB42DF992A32179200238381 /* VideoListCellViewModel.swift in Sources */,
+				FB6373B52A31C05B00D20629 /* RecordButtonDelegate.swift in Sources */,
+				FB0EAD462A3043F8004C4B7D /* VideoListViewModel.swift in Sources */,
+				FB23455E2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift in Sources */,
+				FB23453D2A2DBC9300A08E0D /* VideoContentConfiguration.swift in Sources */,
+				FB2345522A2E159B00A08E0D /* CoreDataManager.swift in Sources */,
+				FB42DFC12A34A08700238381 /* TimerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +331,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB23451D2A2D9BA800A08E0D /* VideoRecorderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -338,7 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -355,6 +477,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 623K76893F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VideoRecorder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -381,6 +504,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 623K76893F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VideoRecorder/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -469,6 +593,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FB42DFB62A341D9C00238381 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FB42DFB82A341D9C00238381 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		FB42DFBA2A341D9C00238381 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB42DFB52A341D9C00238381 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */ = {
