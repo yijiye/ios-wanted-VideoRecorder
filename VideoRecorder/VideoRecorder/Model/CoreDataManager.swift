@@ -5,8 +5,8 @@
 //  Created by 리지 on 2023/06/05.
 //
 
-import UIKit
 import CoreData
+import UIKit
 
 final class CoreDataManager {
     static let shared = CoreDataManager()
