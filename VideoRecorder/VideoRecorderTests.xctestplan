@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "6E46F7B4-F23C-44A3-BB18-0101E3300CEF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:VideoRecorder.xcodeproj",
+        "identifier" : "FB3C3CA32A41777400A8B0E0",
+        "name" : "VideoRecorderTests"
+      }
+    }
+  ],
+  "version" : 1
+}
