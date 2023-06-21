@@ -26,7 +26,6 @@
 		FB23456E2A2F2ECF00A08E0D /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */; };
 		FB2345702A2F465300A08E0D /* RecordComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */; };
 		FB2345722A30003A00A08E0D /* RecordButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */; };
-		FB3C3CA72A41777400A8B0E0 /* VideoRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3C3CA62A41777400A8B0E0 /* VideoRecorderTests.swift */; };
 		FB42DF992A32179200238381 /* VideoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42DF982A32179200238381 /* VideoListCellViewModel.swift */; };
 		FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB42DFB32A341C8900238381 /* GoogleService-Info.plist */; };
 		FB42DFB72A341D9C00238381 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB42DFB62A341D9C00238381 /* FirebaseFirestore */; };
@@ -38,16 +37,6 @@
 		FB6373B52A31C05B00D20629 /* RecordButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6373B42A31C05B00D20629 /* RecordButtonDelegate.swift */; };
 		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FB3C3CA82A41777400A8B0E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB2344F72A2D9BA600A08E0D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB2344FE2A2D9BA600A08E0D;
-			remoteInfo = VideoRecorder;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewModel.swift; sourceTree = "<group>"; };
@@ -71,9 +60,6 @@
 		FB23456D2A2F2ECF00A08E0D /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		FB23456F2A2F465300A08E0D /* RecordComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponentsView.swift; sourceTree = "<group>"; };
 		FB2345712A30003A00A08E0D /* RecordButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonStackView.swift; sourceTree = "<group>"; };
-		FB3C3CA42A41777400A8B0E0 /* VideoRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB3C3CA62A41777400A8B0E0 /* VideoRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecorderTests.swift; sourceTree = "<group>"; };
-		FB3C3CAD2A4178FA00A8B0E0 /* VideoRecorderTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoRecorderTests.xctestplan; sourceTree = "<group>"; };
 		FB42DF982A32179200238381 /* VideoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCellViewModel.swift; sourceTree = "<group>"; };
 		FB42DFB32A341C8900238381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB42DFBC2A3420BB00238381 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
@@ -94,26 +80,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3C3CA12A41777400A8B0E0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		FB2344F62A2D9BA600A08E0D = {
 			isa = PBXGroup;
 			children = (
-				FB3C3CAD2A4178FA00A8B0E0 /* VideoRecorderTests.xctestplan */,
 				FB23455B2A2ED02600A08E0D /* VideoEntity+CoreDataClass.swift */,
 				FB23455C2A2ED02600A08E0D /* VideoEntity+CoreDataProperties.swift */,
 				FB23450B2A2D9BA600A08E0D /* VideoRecorder.xcdatamodeld */,
 				FB2345012A2D9BA600A08E0D /* VideoRecorder */,
-				FB3C3CA52A41777400A8B0E0 /* VideoRecorderTests */,
 				FB2345002A2D9BA600A08E0D /* Products */,
+				FB3C3CB92A429B1000A8B0E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */,
-				FB3C3CA42A41777400A8B0E0 /* VideoRecorderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,12 +174,11 @@
 			path = CollectionListCell;
 			sourceTree = "<group>";
 		};
-		FB3C3CA52A41777400A8B0E0 /* VideoRecorderTests */ = {
+		FB3C3CB92A429B1000A8B0E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FB3C3CA62A41777400A8B0E0 /* VideoRecorderTests.swift */,
 			);
-			path = VideoRecorderTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,24 +206,6 @@
 			productReference = FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB3C3CA32A41777400A8B0E0 /* VideoRecorderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB3C3CAA2A41777400A8B0E0 /* Build configuration list for PBXNativeTarget "VideoRecorderTests" */;
-			buildPhases = (
-				FB3C3CA02A41777400A8B0E0 /* Sources */,
-				FB3C3CA12A41777400A8B0E0 /* Frameworks */,
-				FB3C3CA22A41777400A8B0E0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB3C3CA92A41777400A8B0E0 /* PBXTargetDependency */,
-			);
-			name = VideoRecorderTests;
-			productName = VideoRecorderTests;
-			productReference = FB3C3CA42A41777400A8B0E0 /* VideoRecorderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -260,10 +218,6 @@
 				TargetAttributes = {
 					FB2344FE2A2D9BA600A08E0D = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					FB3C3CA32A41777400A8B0E0 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = FB2344FE2A2D9BA600A08E0D;
 					};
 				};
 			};
@@ -284,7 +238,6 @@
 			projectRoot = "";
 			targets = (
 				FB2344FE2A2D9BA600A08E0D /* VideoRecorder */,
-				FB3C3CA32A41777400A8B0E0 /* VideoRecorderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,13 +250,6 @@
 				FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */,
 				FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */,
 				FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB3C3CA22A41777400A8B0E0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,23 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3C3CA02A41777400A8B0E0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB3C3CA72A41777400A8B0E0 /* VideoRecorderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FB3C3CA92A41777400A8B0E0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB2344FE2A2D9BA600A08E0D /* VideoRecorder */;
-			targetProxy = FB3C3CA82A41777400A8B0E0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */ = {
@@ -538,49 +468,6 @@
 			};
 			name = Release;
 		};
-		FB3C3CAB2A41777400A8B0E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.riji.VideoRecorderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoRecorder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VideoRecorder";
-			};
-			name = Debug;
-		};
-		FB3C3CAC2A41777400A8B0E0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 623K76893F;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.riji.VideoRecorderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoRecorder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VideoRecorder";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -598,15 +485,6 @@
 			buildConfigurations = (
 				FB23452D2A2D9BA800A08E0D /* Debug */,
 				FB23452E2A2D9BA800A08E0D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB3C3CAA2A41777400A8B0E0 /* Build configuration list for PBXNativeTarget "VideoRecorderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB3C3CAB2A41777400A8B0E0 /* Debug */,
-				FB3C3CAC2A41777400A8B0E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
