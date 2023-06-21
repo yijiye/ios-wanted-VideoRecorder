@@ -38,16 +38,6 @@
 		FB9222E02A303D8F00FC7BD8 /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9222DF2A303D8F00FC7BD8 /* Extension + Double.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FB2345192A2D9BA800A08E0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB2344F72A2D9BA600A08E0D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB2344FE2A2D9BA600A08E0D;
-			remoteInfo = VideoRecorder;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		FB0EAD452A3043F8004C4B7D /* VideoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewModel.swift; sourceTree = "<group>"; };
 		FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +48,6 @@
 		FB23450E2A2D9BA800A08E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2345112A2D9BA800A08E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB2345132A2D9BA800A08E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2345352A2DA5E100A08E0D /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		FB2345392A2DA83400A08E0D /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		FB23453C2A2DBC9300A08E0D /* VideoContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentConfiguration.swift; sourceTree = "<group>"; };
@@ -91,13 +80,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB2345152A2D9BA800A08E0D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */,
-				FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,24 +198,6 @@
 			productReference = FB2344FF2A2D9BA600A08E0D /* VideoRecorder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB2345172A2D9BA800A08E0D /* VideoRecorderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB23452F2A2D9BA800A08E0D /* Build configuration list for PBXNativeTarget "VideoRecorderTests" */;
-			buildPhases = (
-				FB2345142A2D9BA800A08E0D /* Sources */,
-				FB2345152A2D9BA800A08E0D /* Frameworks */,
-				FB2345162A2D9BA800A08E0D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB23451A2A2D9BA800A08E0D /* PBXTargetDependency */,
-			);
-			name = VideoRecorderTests;
-			productName = VideoRecorderTests;
-			productReference = FB2345182A2D9BA800A08E0D /* VideoRecorderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,10 +210,6 @@
 				TargetAttributes = {
 					FB2344FE2A2D9BA600A08E0D = {
 						CreatedOnToolsVersion = 14.3;
-					};
-					FB2345172A2D9BA800A08E0D = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = FB2344FE2A2D9BA600A08E0D;
 					};
 				};
 			};
@@ -271,7 +230,6 @@
 			projectRoot = "";
 			targets = (
 				FB2344FE2A2D9BA600A08E0D /* VideoRecorder */,
-				FB2345172A2D9BA800A08E0D /* VideoRecorderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,13 +242,6 @@
 				FB2345122A2D9BA800A08E0D /* LaunchScreen.storyboard in Resources */,
 				FB23450F2A2D9BA800A08E0D /* Assets.xcassets in Resources */,
 				FB42DFB42A341C8900238381 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB2345162A2D9BA800A08E0D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,22 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB2345142A2D9BA800A08E0D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FB23451A2A2D9BA800A08E0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB2344FE2A2D9BA600A08E0D /* VideoRecorder */;
-			targetProxy = FB2345192A2D9BA800A08E0D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB2345102A2D9BA800A08E0D /* LaunchScreen.storyboard */ = {
@@ -524,44 +460,6 @@
 			};
 			name = Release;
 		};
-		FB2345302A2D9BA800A08E0D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.riji.VideoRecorderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoRecorder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VideoRecorder";
-			};
-			name = Debug;
-		};
-		FB2345312A2D9BA800A08E0D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.riji.VideoRecorderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoRecorder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VideoRecorder";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,15 +477,6 @@
 			buildConfigurations = (
 				FB23452D2A2D9BA800A08E0D /* Debug */,
 				FB23452E2A2D9BA800A08E0D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB23452F2A2D9BA800A08E0D /* Build configuration list for PBXNativeTarget "VideoRecorderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB2345302A2D9BA800A08E0D /* Debug */,
-				FB2345312A2D9BA800A08E0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
